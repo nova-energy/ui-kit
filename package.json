@@ -1,0 +1,52 @@
+{
+  "name": "@nova-energy/ui-kit",
+  "version": "0.0.2",
+  "type": "module",
+  "repository": "https://github.com/nova-energy/ui-kit.git",
+  "author": "Gareth Poole <gareth@sparksinteractive.co.nz>",
+  "license": "MIT",
+  "main": "./dist/react-component-library.umd.js",
+  "module": "./dist/react-component-library.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist",
+    "/dist/style.css"
+  ],
+  "scripts": {
+    "build": "concurrently \"npm run build:css\" \"tsc && vite build\"",
+    "build:css": "tailwindcss -m -i ./src/tailwind-entry.css -o ./dist/index.css",
+    "storybook": "concurrently \"npm run storybook:css\" \"storybook dev -p 6006\"",
+    "storybook:css": "tailwindcss -w -i ./src/tailwind-entry.css -o ./src/index.css",
+    "build-storybook": "concurrently \"npm run build-storybook:css\" \"storybook build\"",
+    "build-storybook:css": "tailwindcss -m -i ./src/tailwind-entry.css -o ./src/index.css"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@storybook/addon-essentials": "^7.0.0-beta.14",
+    "@storybook/addon-interactions": "^7.0.0-beta.14",
+    "@storybook/addon-links": "^7.0.0-beta.14",
+    "@storybook/blocks": "^7.0.0-beta.14",
+    "@storybook/react": "^7.0.0-beta.14",
+    "@storybook/react-vite": "^7.0.0-beta.14",
+    "@storybook/testing-library": "^0.0.14-next.1",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react": "^3.0.0",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^8.3.0",
+    "concurrently": "^7.6.0",
+    "postcss": "^8.4.20",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.0-beta.14",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "vite-plugin-dts": "^1.7.1",
+    "vite-tsconfig-paths": "^4.0.3"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
